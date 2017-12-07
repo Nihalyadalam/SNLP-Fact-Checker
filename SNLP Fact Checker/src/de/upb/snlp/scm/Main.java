@@ -2,7 +2,7 @@ package de.upb.snlp.scm;
 
 import de.upb.snlp.scm.core.NERUtil;
 import de.upb.snlp.scm.util.Config;
-import de.upb.snlp.scm.util.FileUtil;
+import de.upb.snlp.scm.util.NetworkUtil;
 
 /**
  * 
@@ -13,11 +13,18 @@ public class Main {
 
 	public static void main(String args[]) {
 
-		String content = FileUtil.readFile(Config.TEST_FILE);
+		String corpus = NetworkUtil.getCorpus("Albert Einstein");
 
 		String classifierPath = Config.NER_3_CLASSIFIER;
 
-		System.out.println(NERUtil.identifyNER(content, classifierPath).toString());
+		int index = 0;
+		while (corpus.indexOf("\n", index)!=-1) {
+			int line = corpus.indexOf("\n", index);
+			String sentence = corpus.substring(index, line);
+			index = line + 1;
+			System.out.println(NERUtil.identifyNER(sentence, classifierPath).toString());
+		}
+
 	}
 
 }
