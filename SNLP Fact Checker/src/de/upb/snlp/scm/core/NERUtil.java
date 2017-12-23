@@ -23,14 +23,16 @@ public class NERUtil {
 
 				String word = coreLabel.word();
 				String category = coreLabel.get(CoreAnnotations.AnswerAnnotation.class);
-				if (map.containsKey(category)) {
-					map.get(category).add(word);
-				} else {
-					LinkedHashSet<String> temp = new LinkedHashSet<String>();
-					temp.add(word);
-					map.put(category, temp);
-				}
+				if (!"O".equals(category)) {
+					if (map.containsKey(category)) {
+						map.get(category).add(word);
+					} else {
+						LinkedHashSet<String> temp = new LinkedHashSet<String>();
+						temp.add(word);
+						map.put(category, temp);
+					}
 
+				}
 			}
 
 		}
