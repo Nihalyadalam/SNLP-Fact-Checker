@@ -19,13 +19,14 @@
 	</build>
 
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/edu.stanford.nlp/stanford-corenlp -->
+		<!-- Stanford Core NLP -->
 		<dependency>
 			<groupId>edu.stanford.nlp</groupId>
 			<artifactId>stanford-corenlp</artifactId>
 			<version>3.8.0</version>
 		</dependency>
 
+		<!-- Stanford Core NLP Language Models -->
 		<dependency>
 			<groupId>edu.stanford.nlp</groupId>
 			<artifactId>stanford-corenlp</artifactId>
@@ -33,13 +34,7 @@
 			<classifier>models</classifier>
 		</dependency>
 
-		<dependency>
-			<groupId>net.sourceforge</groupId>
-			<artifactId>jwbf</artifactId>
-			<version>3.1.1</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+		<!-- jsoup for html parse -->
 		<dependency>
 			<groupId>org.jsoup</groupId>
 			<artifactId>jsoup</artifactId>

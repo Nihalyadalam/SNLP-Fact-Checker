@@ -1,8 +1,6 @@
 package de.upb.snlp.scm.util;
 
-import org.jsoup.examples.HtmlToPlainText;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 /**
@@ -13,19 +11,8 @@ import org.jsoup.select.Elements;
 public class Parser {
 
 	public static String getPlainText(Document doc) {
-		Elements paragraphs = doc.getElementsByClass("mw-parser-output").get(0).getElementsByTag("p");
-
-		String article = null;
-
-		HtmlToPlainText html2text = new HtmlToPlainText();
-
-		for (Element e : paragraphs) {
-			article += html2text.getPlainText(e);
-		}
-
-		article = normalize(article);
-
-		return article;
+		Elements ps = doc.select("p");
+		return ps.text();
 	}
 
 	private static String normalize(String text) {
@@ -35,13 +22,11 @@ public class Parser {
 
 	private static String removeParenthesis(String text) {
 
-		text = text.replaceAll("\\s*\\[[^\\]]*\\]\\s*", " ");
-		text = text.replaceAll("\\s*\\{[^\\}]*\\}\\s*", " ");
+		// text = text.replaceAll("\\s*\\[[^\\]]*\\]\\s*", " ");
+		// text = text.replaceAll("\\s*\\{[^\\}]*\\}\\s*", " ");
 		// text = text.replaceAll("\\s*\\([^\\)]*\\)\\s*", " ");
 
 		text = text.replaceAll("\\s*\\<[^\\)]*\\>\\s*", " ");
-		text = text.replaceAll("\\s*\\<[^\\)]*\\>\\s*", " ");
-
 		return text;
 
 	}
