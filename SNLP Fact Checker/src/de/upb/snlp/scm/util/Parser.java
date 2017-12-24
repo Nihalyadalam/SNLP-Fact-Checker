@@ -15,22 +15,6 @@ public class Parser {
 		return ps.text();
 	}
 
-	private static String normalize(String text) {
-		text = removeParenthesis(text);
-		return text;
-	}
-
-	private static String removeParenthesis(String text) {
-
-		// text = text.replaceAll("\\s*\\[[^\\]]*\\]\\s*", " ");
-		// text = text.replaceAll("\\s*\\{[^\\}]*\\}\\s*", " ");
-		// text = text.replaceAll("\\s*\\([^\\)]*\\)\\s*", " ");
-
-		text = text.replaceAll("\\s*\\<[^\\)]*\\>\\s*", " ");
-		return text;
-
-	}
-
 	public static String getInfobox(String article) {
 		int startOfInfoBox = article.indexOf("Infobox");
 		int nextLine = article.indexOf("\n", startOfInfoBox);

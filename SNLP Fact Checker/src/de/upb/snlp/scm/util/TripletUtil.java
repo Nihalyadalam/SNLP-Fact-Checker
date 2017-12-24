@@ -22,7 +22,8 @@ public class TripletUtil {
 	public static Pair<Triplet, Triplet> preprocessTriples(Triplet triplet1, Triplet triplet2) {
 		Pair<Triplet, Triplet> pair = alignTriples(triplet1, triplet2);
 		pair = processPronouns(pair);
-		return simplifyTriples(pair);
+		return pair;
+		// return simplifyTriples(pair);
 	}
 
 	private static Pair<Triplet, Triplet> alignTriples(Triplet triplet1, Triplet triplet2) {
