@@ -1,5 +1,8 @@
 package de.upb.snlp.scm.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.upb.snlp.scm.model.Triplet;
 import edu.stanford.nlp.util.Pair;
 
@@ -11,7 +14,7 @@ import edu.stanford.nlp.util.Pair;
 public class TripletUtil {
 
 	public static boolean isTripletsWorthComparison(Triplet triplet1, Triplet triplet2) {
-		Similarity similarity = new Similarity(Similarity.wuPalmer);
+		Similarity similarity = new Similarity(Similarity.WU_PALMER);
 		double sim = similarity.findSimilarity(triplet1.getPredicate(), triplet2.getPredicate());
 		return sim > 0.3;
 	}
@@ -54,6 +57,26 @@ public class TripletUtil {
 		}
 
 		return pair;
+	}
+
+	public static List<Pair<Triplet, Triplet>> findCandidatesForComparison(List<Triplet> inputTriplets,
+			List<Triplet> corpusTriplets) {
+		List<Pair<Triplet, Triplet>> candidates = new ArrayList<>();
+		for (Triplet input : inputTriplets) {
+			for (Triplet corpus : corpusTriplets) {
+				if (input.getObject().contains(corpus.getObject()) || input.getSubject().contains(corpus.getSubject())
+						|| corpus.getObject().contains(input.getObject())
+						|| corpus.getSubject().contains(input.getSubject())
+						|| corpus.getObject().contains(input.getSubject())
+						|| corpus.getSubject().contains(input.getObject())
+						|| input.getObject().contains(corpus.getSubject())
+						|| input.getSubject().contains(corpus.getObject())) {
+					Pair<Triplet, Triplet> pair = new Pair<>(input, corpus);
+					candidates.add(pair);
+				}
+			}
+		}
+		return candidates;
 	}
 
 }

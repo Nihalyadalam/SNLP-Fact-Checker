@@ -18,7 +18,7 @@ import edu.cmu.lti.ws4j.util.WS4JConfiguration;
 public class Similarity {
 
 	private static ILexicalDatabase db = new NictWordNet();
-	public static RelatednessCalculator wuPalmer = new WuPalmer(db);
+	public static RelatednessCalculator WU_PALMER = new WuPalmer(db);
 
 	private RelatednessCalculator calculator;
 
@@ -32,15 +32,10 @@ public class Similarity {
 	public double findSimilarity(Triplet triplet1, Triplet triplet2) {
 		WS4JConfiguration.getInstance().setMFS(true);
 		double[][] nmatrix = calculator.getNormalizedSimilarityMatrix(triplet1.toArray(), triplet2.toArray());
-		System.out.println(triplet1.toString());
-		System.out.println(triplet2.toString());
 		double score = 0;
 		int size = 0;
-		NumberFormat formatter = new DecimalFormat("#0.00");
 		for (double[] col : nmatrix) {
-			System.out.println(" ");
 			for (double d : col) {
-				System.out.print(formatter.format(d) + " _ ");
 				score += d;
 			}
 
