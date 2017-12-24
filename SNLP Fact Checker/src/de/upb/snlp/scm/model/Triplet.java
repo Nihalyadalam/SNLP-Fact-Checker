@@ -43,7 +43,15 @@ public class Triplet {
 
 	@Override
 	public String toString() {
-		return "_" + subject + "_\t\t_" + predicate + "_\t\t_" + object + "_";
+		return subject + " " + predicate + " " + object;
+	}
+
+	public String[] toArray() {
+		String[] arr = new String[3];
+		arr[0] = subject;
+		arr[1] = predicate;
+		arr[2] = object;
+		return arr;
 	}
 
 }

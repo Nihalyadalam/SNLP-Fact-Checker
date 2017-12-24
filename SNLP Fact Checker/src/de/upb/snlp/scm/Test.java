@@ -1,38 +1,65 @@
 package de.upb.snlp.scm;
 
-import java.util.Collection;
-import java.util.Properties;
-
-import edu.stanford.nlp.ie.util.RelationTriple;
-import edu.stanford.nlp.ling.CoreAnnotations;
-import edu.stanford.nlp.naturalli.NaturalLogicAnnotations;
-import edu.stanford.nlp.pipeline.Annotation;
-import edu.stanford.nlp.pipeline.StanfordCoreNLP;
-import edu.stanford.nlp.simple.Document;
-import edu.stanford.nlp.simple.Sentence;
-import edu.stanford.nlp.util.CoreMap;
+import edu.cmu.lti.lexical_db.ILexicalDatabase;
+import edu.cmu.lti.lexical_db.NictWordNet;
+import edu.cmu.lti.ws4j.RelatednessCalculator;
+import edu.cmu.lti.ws4j.impl.HirstStOnge;
+import edu.cmu.lti.ws4j.impl.JiangConrath;
+import edu.cmu.lti.ws4j.impl.LeacockChodorow;
+import edu.cmu.lti.ws4j.impl.Lesk;
+import edu.cmu.lti.ws4j.impl.Lin;
+import edu.cmu.lti.ws4j.impl.Path;
+import edu.cmu.lti.ws4j.impl.Resnik;
+import edu.cmu.lti.ws4j.impl.WuPalmer;
+import edu.cmu.lti.ws4j.util.WS4JConfiguration;
 
 public class Test {
+	private static ILexicalDatabase db = new NictWordNet();
+	private static RelatednessCalculator[] rcs = { new HirstStOnge(db), new LeacockChodorow(db), new Lesk(db),
+			new WuPalmer(db), new Resnik(db), new JiangConrath(db), new Lin(db), new Path(db) };
 
-	public static void main(String[] args) {
-		
-
-		// Create a CoreNLP document
-		// Document sdoc = new Document("Albert Einstein was born in Ulm, in the
-		// Kingdom of Württemberg in the German Empire, on 14 March 1879.");
-		//
-		// // Iterate over the sentences in the document
-		// for (Sentence sent : sdoc.sentences()) {
-		// // Iterate over the triples in the sentence
-		// for (RelationTriple triple : sent.openieTriples()) {
-		// // Print the triple
-		// System.out.println(triple.confidence + "\t" +
-		// triple.subjectLemmaGloss() + "\t" +
-		// triple.relationLemmaGloss() + "\t" +
-		// triple.objectLemmaGloss());
-		// }
-		// }
-
+	private static void run(String word1, String word2) {
+		WS4JConfiguration.getInstance().setMFS(true);
+		double average = 0;
+		for (RelatednessCalculator rc : rcs) {
+			double s = rc.calcRelatednessOfWords(word1, word2);
+			average += s;
+			average = Double.isInfinite(average) ? Double.MAX_VALUE : average;
+		}
+		average /= rcs.length;
+		average = Double.isInfinite(average) ? 1.0 : average / Double.MAX_VALUE;
+		System.out.println("average sim: " + average);
 	}
 
+	private static void runs(String[] word1, String[] word2) {
+		WS4JConfiguration.getInstance().setMFS(true);
+		double average = 0;
+		for (RelatednessCalculator rc : rcs) {
+			System.out.println(rc.getClass().getSimpleName());
+			double[][] nmatrix = rc.getNormalizedSimilarityMatrix(word1, word2);
+			for (double[] col : nmatrix) {
+				for (double d : col) {
+					System.out.print(d + " - ");
+				}
+				System.out.println(" ");
+			}
+			// average += s;
+			// average = Double.isInfinite(average) ? Double.MAX_VALUE :
+			// average;
+		}
+		// average /= rcs.length;
+		// average = Double.isInfinite(average) ? 1.0 : average /
+		// Double.MAX_VALUE;
+		// System.out.println("average sim: " + average);
+	}
+
+	public static void main(String[] args) {
+		long t0 = System.currentTimeMillis();
+		String[] words1 = { "make", "do", "together", "potato" };
+		String[] words2 = { "make", "do", "never", "tomato" };
+		// run("make", "do");
+		runs(words1, words2);
+		long t1 = System.currentTimeMillis();
+		System.out.println("Done in " + (t1 - t0) + " msec.");
+	}
 }

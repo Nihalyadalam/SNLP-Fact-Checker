@@ -41,6 +41,12 @@
 			<version>1.7.2</version>
 		</dependency>
 
+		<!-- ws4j for similarity -->
+		<dependency>
+			<groupId>edu.cmu.lti</groupId>
+			<artifactId>ws4j</artifactId>
+			<version>1.0.1</version>
+		</dependency>
 
 	</dependencies>
 </project>
