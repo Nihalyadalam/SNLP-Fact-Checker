@@ -1,9 +1,11 @@
 package de.upb.snlp.scm;
 
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 
-import de.upb.snlp.scm.core.NERUtil;
+import de.upb.snlp.scm.core.NLP;
+import de.upb.snlp.scm.model.Triplet;
 import de.upb.snlp.scm.util.Config;
 import de.upb.snlp.scm.util.Network;
 
@@ -20,9 +22,9 @@ public class Main {
 
 		String input = "Nobel Peace Prize is Henry Dunant's honour.";
 
-		System.out.println(NERUtil.identifyNER(input, classifierPath));
+		System.out.println(NLP.findNamedEntities(input, classifierPath));
 
-		Map<String, LinkedHashSet<String>> EntityMap = NERUtil.identifyNER(input, classifierPath);
+		Map<String, LinkedHashSet<String>> EntityMap = NLP.findNamedEntities(input, classifierPath);
 
 		LinkedHashSet<String> personSet = EntityMap.get("PERSON");
 
@@ -36,7 +38,20 @@ public class Main {
 
 		String corpus = Network.getCorpus(articleTitle);
 
-		System.out.println(corpus);
+		List<Triplet> corpusRelations = NLP.findRelations(corpus);
+
+		for (Triplet t : corpusRelations) {
+			System.out.println(t.toString());
+		}
+
+		List<Triplet> inputRelations = NLP.findRelations(input);
+
+		for (Triplet t : inputRelations) {
+			System.out.println("input: ");
+			System.out.println(t.toString());
+		}
+
+		// System.out.println(corpus);
 
 		/*
 		 * String corpus = NetworkUtil.getCorpus("Albert Einstein");
