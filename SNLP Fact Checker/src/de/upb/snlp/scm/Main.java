@@ -2,7 +2,8 @@ package de.upb.snlp.scm;
 
 import de.upb.snlp.scm.model.Triplet;
 import de.upb.snlp.scm.util.Similarity;
-import edu.cmu.lti.ws4j.impl.WuPalmer;
+import de.upb.snlp.scm.util.TripletUtil;
+import edu.stanford.nlp.util.Pair;
 
 /**
  * 
@@ -47,12 +48,18 @@ public class Main {
 		// System.out.println(t.toString());
 		// }
 
-		Similarity similarity = new Similarity(new WuPalmer(Similarity.db));
+		Similarity similarity = new Similarity(Similarity.wuPalmer);
 
 		Triplet triplet1 = new Triplet("Henry Dumont", "receive", "Nobel Peace Prize");
-		Triplet triplet2 = new Triplet("Henry Dumont's Honour", "be", "Nobel Peace Prize");
+		Triplet triplet2 = new Triplet("Nobel Peace Prize", "be", "Henry Dumont's Honour");
+		
+		if(!TripletUtil.isTripletsWorthComparison(triplet1, triplet2)){
+			return;
+		}
 
-		double sim = similarity.findSimilarity(triplet1, triplet2);
+		Pair<Triplet, Triplet> tripletPair = TripletUtil.alignTriples(triplet1, triplet2);
+
+		double sim = similarity.findSimilarity(tripletPair.first, tripletPair.second);
 
 		System.out.println("\n" + sim);
 
