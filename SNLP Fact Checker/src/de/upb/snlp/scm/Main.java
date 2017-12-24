@@ -1,6 +1,7 @@
 package de.upb.snlp.scm;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.Map;
 import de.upb.snlp.scm.core.NLP;
 import de.upb.snlp.scm.model.Triplet;
 import de.upb.snlp.scm.util.Config;
+import de.upb.snlp.scm.util.MapUtil;
 import de.upb.snlp.scm.util.Network;
 import de.upb.snlp.scm.util.Similarity;
 import de.upb.snlp.scm.util.TripletUtil;
@@ -55,19 +57,31 @@ public class Main {
 
 		for (Triplet t : inputRelations) {
 			inputList.add(t);
+			System.out.println(t.toString());
 		}
 
 		List<Pair<Triplet, Triplet>> pairs = TripletUtil.findCandidatesForComparison(inputList, corpusList);
 
 		Similarity similarity = new Similarity(Similarity.WU_PALMER);
 
-		for (Pair<Triplet, Triplet> pair : pairs) {
-			System.out.println("initial: " + pair.first.toString() + " : " + pair.second.toString());
-			pair = TripletUtil.alignTriples(pair.first, pair.second);
-			System.out.println("aligned: " + pair.first.toString() + " : " + pair.second.toString());
-			double sim = similarity.findSimilarity(pair.first, pair.second);
-			System.out.println("sim: " + sim);
+		Map<Pair<Triplet, Triplet>, Double> similarities = new HashMap<>();
 
+		int prefix = 0;
+		for (Pair<Triplet, Triplet> pair : pairs) {
+			pair = TripletUtil.preprocessTriples(pair.first, pair.second);
+			double sim = similarity.findSimilarity(pair.first, pair.second);
+			if (similarities.containsKey(pair)) {
+				prefix++;
+				pair.first.setSubject(prefix + pair.first.getSubject());
+			}
+			similarities.put(pair, sim);
+		}
+
+		Map<Pair<Triplet, Triplet>, Double> sortedSimilarities = MapUtil.sortByValue(similarities);
+
+		for (Map.Entry<Pair<Triplet, Triplet>, Double> e : sortedSimilarities.entrySet()) {
+			System.out.println("sim: " + e.getValue() + " | " + e.getKey().first.toString() + " | "
+					+ e.getKey().second.toString());
 		}
 
 		// Triplet triplet1 = new Triplet("Henry Dumont", "receive", "Nobel

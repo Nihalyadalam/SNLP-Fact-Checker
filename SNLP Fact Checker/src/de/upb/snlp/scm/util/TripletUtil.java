@@ -19,7 +19,13 @@ public class TripletUtil {
 		return sim > 0.3;
 	}
 
-	public static Pair<Triplet, Triplet> alignTriples(Triplet triplet1, Triplet triplet2) {
+	public static Pair<Triplet, Triplet> preprocessTriples(Triplet triplet1, Triplet triplet2) {
+		Pair<Triplet, Triplet> pair = alignTriples(triplet1, triplet2);
+		pair = processPronouns(pair);
+		return simplifyTriples(pair);
+	}
+
+	private static Pair<Triplet, Triplet> alignTriples(Triplet triplet1, Triplet triplet2) {
 		Pair<Triplet, Triplet> pair = new Pair<>();
 		// align subject and objects
 		if (triplet1.getSubject().contains(triplet2.getObject())) {
@@ -32,14 +38,43 @@ public class TripletUtil {
 			String object = triplet2.getObject();
 			triplet2.setObject(subject);
 			triplet2.setSubject(object);
+		} else if (triplet1.getObject().contains(triplet2.getSubject())) {
+			String subject = triplet1.getSubject();
+			String object = triplet1.getObject();
+			triplet1.setObject(subject);
+			triplet1.setSubject(object);
+		} else if (triplet2.getObject().contains(triplet1.getSubject())) {
+			String subject = triplet2.getSubject();
+			String object = triplet2.getObject();
+			triplet2.setObject(subject);
+			triplet2.setSubject(object);
 		}
 		pair.setFirst(triplet1);
 		pair.setSecond(triplet2);
-
-		return simplifyTriples(pair);
+		return pair;
 	}
 
-	public static Pair<Triplet, Triplet> simplifyTriples(Pair<Triplet, Triplet> pair) {
+	private static Pair<Triplet, Triplet> processPronouns(Pair<Triplet, Triplet> pair) {
+		Triplet triplet1 = pair.first;
+		Triplet triplet2 = pair.second;
+		// simplify subjects
+		if (triplet1.getSubject().equals("he") || triplet1.getSubject().equals("she")) {
+			triplet1.setSubject(triplet2.getSubject());
+		} else if (triplet2.getSubject().equals("he") || triplet2.getSubject().equals("she")) {
+			triplet2.setSubject(triplet1.getSubject());
+		}
+
+		// simplify objects;
+		if (triplet1.getObject().equals("he") || triplet1.getSubject().equals("she")) {
+			triplet1.setObject(triplet2.getObject());
+		} else if (triplet2.getObject().equals("he") || triplet1.getSubject().equals("she")) {
+			triplet2.setObject(triplet1.getObject());
+		}
+
+		return pair;
+	}
+
+	private static Pair<Triplet, Triplet> simplifyTriples(Pair<Triplet, Triplet> pair) {
 		Triplet triplet1 = pair.first;
 		Triplet triplet2 = pair.second;
 		// simplify subjects

@@ -1,8 +1,5 @@
 package de.upb.snlp.scm.util;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-
 import de.upb.snlp.scm.model.Triplet;
 import edu.cmu.lti.lexical_db.ILexicalDatabase;
 import edu.cmu.lti.lexical_db.NictWordNet;
@@ -31,37 +28,21 @@ public class Similarity {
 
 	public double findSimilarity(Triplet triplet1, Triplet triplet2) {
 		WS4JConfiguration.getInstance().setMFS(true);
-		double[][] nmatrix = calculator.getNormalizedSimilarityMatrix(triplet1.toArray(), triplet2.toArray());
+		double[][] simMatrix = calculator.getNormalizedSimilarityMatrix(triplet1.toArray(), triplet2.toArray());
 		double score = 0;
-		int size = 0;
-		for (double[] col : nmatrix) {
-			for (double d : col) {
-				score += d;
-			}
-
-			size++;
+		for (int i = 0; i < simMatrix.length; i++) {
+			// simMatrix is always 3x3
+			score += simMatrix[i][i];
 		}
-		score /= size;
-		return score;
+		return score / simMatrix.length;
 	}
 
 	public double findSimilarity(String word1, String word2) {
 		WS4JConfiguration.getInstance().setMFS(true);
 		String[] s1 = { word1 };
 		String[] s2 = { word2 };
-		double[][] nmatrix = calculator.getNormalizedSimilarityMatrix(s1, s2);
-		double score = 0;
-		int size = 0;
-		NumberFormat formatter = new DecimalFormat("#0.00");
-		for (double[] col : nmatrix) {
-			for (double d : col) {
-				score += d;
-			}
-
-			size++;
-		}
-		score /= size;
-		return score;
+		double[][] simMatrix = calculator.getNormalizedSimilarityMatrix(s1, s2);
+		return simMatrix[0][0];
 	}
 
 }
