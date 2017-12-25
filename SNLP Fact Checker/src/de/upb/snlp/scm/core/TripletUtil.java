@@ -1,4 +1,4 @@
-package de.upb.snlp.scm.util;
+package de.upb.snlp.scm.core;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -113,6 +113,13 @@ public class TripletUtil {
 			}
 		}
 		return candidates;
+	}
+
+	public static Triplet swap(Triplet triplet) {
+		String subject = triplet.getSubject();
+		triplet.setSubject(triplet.getObject());
+		triplet.setObject(subject);
+		return triplet;
 	}
 
 }

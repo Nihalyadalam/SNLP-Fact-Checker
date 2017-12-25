@@ -1,4 +1,4 @@
-package de.upb.snlp.scm.util;
+package de.upb.snlp.scm.core;
 
 import de.upb.snlp.scm.model.Triplet;
 import edu.cmu.lti.lexical_db.ILexicalDatabase;
