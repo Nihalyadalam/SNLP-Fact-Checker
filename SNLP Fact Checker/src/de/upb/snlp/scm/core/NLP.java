@@ -1,5 +1,7 @@
 package de.upb.snlp.scm.core;
 
+import java.io.Reader;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
@@ -12,9 +14,12 @@ import edu.stanford.nlp.ie.crf.CRFClassifier;
 import edu.stanford.nlp.ie.util.RelationTriple;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.ling.HasWord;
+import edu.stanford.nlp.ling.SentenceUtils;
 import edu.stanford.nlp.naturalli.NaturalLogicAnnotations;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import edu.stanford.nlp.process.DocumentPreprocessor;
 import edu.stanford.nlp.util.CoreMap;
 
 /**
@@ -48,6 +53,15 @@ public class NLP {
 		return map;
 	}
 
+	public static List<Triplet> findRelations(List<String> sentences) {
+		List<Triplet> relations = new ArrayList<>();
+		for (String s : sentences) {
+			relations.addAll(findRelations(s));
+		}
+
+		return relations;
+	}
+
 	public static List<Triplet> findRelations(String plainText) {
 		List<Triplet> relations = new ArrayList<>();
 		// Create the Stanford CoreNLP pipeline
@@ -73,6 +87,35 @@ public class NLP {
 			}
 		}
 		return relations;
+	}
+
+	public static List<String> extractSentences(String corpus) {
+		Reader reader = new StringReader(corpus);
+		DocumentPreprocessor dp = new DocumentPreprocessor(reader);
+		List<String> sentenceList = new ArrayList<String>();
+
+		for (List<HasWord> sentence : dp) {
+			// SentenceUtils not Sentence
+			String sentenceString = SentenceUtils.listToString(sentence);
+			sentenceList.add(sentenceString);
+		}
+		return sentenceList;
+	}
+
+	public static List<String> findCandidateSentences(String corpus, List<String> inputObjects) {
+		List<String> candidateSentences = new ArrayList<>();
+
+		List<String> allSentences = extractSentences(corpus);
+
+		for (String s : allSentences) {
+			for (String o : inputObjects) {
+				if (s.contains(o)) {
+					candidateSentences.add(s);
+				}
+			}
+		}
+
+		return candidateSentences;
 	}
 
 }

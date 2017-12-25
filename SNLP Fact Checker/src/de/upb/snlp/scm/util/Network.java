@@ -12,10 +12,12 @@ import org.jsoup.nodes.Document;
  */
 public class Network {
 
+	public static Document doc = null;
+
 	public static String getCorpus(String title) {
 		String plaintext = null;
 		try {
-			Document doc = Jsoup.connect("https://en.wikipedia.org/wiki/" + title).get();
+			doc = Jsoup.connect("https://en.wikipedia.org/wiki/" + title).get();
 			plaintext = Parser.getPlainText(doc);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
