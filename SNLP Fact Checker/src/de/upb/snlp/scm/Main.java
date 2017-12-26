@@ -5,7 +5,9 @@ import java.util.List;
 import de.upb.snlp.scm.core.Network;
 import de.upb.snlp.scm.core.Parser;
 import de.upb.snlp.scm.core.Relation;
+import de.upb.snlp.scm.model.Input;
 import de.upb.snlp.scm.model.Triplet;
+import de.upb.snlp.scm.util.FileUtil;
 import de.upb.snlp.scm.util.ListUtil;
 
 /**
@@ -17,15 +19,42 @@ public class Main {
 
 	public static void main(String args[]) {
 
+		List<Input> inputs = FileUtil.readTSV("Data/train.tsv");
+
+		int trueCount = 0;
+		int falseCount = 0;
+
+		for (Input i : inputs) {
+			double value = 0;
+			try {
+				value = findExactInfo(i.getSentence());
+			} catch (Exception e) {
+				i.getSentence();
+				e.printStackTrace();
+			}
+			System.out.print(i.getSentence() + "\t");
+			if (i.getValue() == value) {
+				System.out.print("True" + "\t");
+				trueCount++;
+			} else {
+				System.out.print("False" + "\t");
+				falseCount++;
+			}
+			System.out.println(value);
+
+		}
+
+		System.out.println("True: " + trueCount);
+		System.out.println("False: " + falseCount);
 		// TODO: findExactInfo("Naples, Florida is Donna Summer's death
 		// place.");
 		// findExactInfo("Wilhelm Röntgen's award is Nobel Prize in Physics.");
 		// TODO: findExactInfo("Nobel Prize in Physics is John Strutt, 3rd Baron
 		// TODO: novel findExactInfo("Iain Banks is Whit's generator.");
-		findExactInfo("Yahoo!'s subsidiary is BlueLithium.");
-		findExactInfo("Yahoo!'s subsidiary is EGroups.");
-		findExactInfo("Snapfish is Hewlett-Packard's subordinate.");
-		findExactInfo("SBEA Systems' subsidiary is Plumtree Software.");
+		// findExactInfo("Yahoo!'s subsidiary is BlueLithium.");
+		// findExactInfo("Yahoo!'s subsidiary is EGroups.");
+		// findExactInfo("Snapfish is Hewlett-Packard's subordinate.");
+		// findExactInfo("SBEA Systems' subsidiary is Plumtree Software.");
 
 		// String classifierPath = Config.NER_3_CLASSIFIER;
 		//
@@ -117,7 +146,7 @@ public class Main {
 
 	}
 
-	private static void findExactInfo(String input) {
+	private static double findExactInfo(String input) {
 
 		// Map<String, LinkedHashSet<String>> EntityMap =
 		// NLP.findNamedEntities(input, Config.NER_3_CLASSIFIER);
@@ -138,29 +167,35 @@ public class Main {
 
 		Triplet inputRelations = Relation.findRelation(input);
 
+		if (inputRelations == null) {
+			return 0.0;
+		}
+
 		String article = inputRelations.getSubject().replaceAll(" ", "_");
 
 		String corpus = Network.getCorpus(article);
 
 		List<Triplet> triplets = Parser.getInfobox(inputRelations.getSubject(), Network.doc);
 
-		System.out.print(inputRelations);
+		double value = 0;
 		boolean right = false;
 		if (ListUtil.isNotEmpty(triplets)) {
 			for (Triplet t : triplets) {
 				if (t.getObject().contains(inputRelations.getObject())
 						|| inputRelations.getObject().contains(t.getObject())) {
-					System.out.println(" sim: " + 1.0);
+					value = 1.0;
 					right = true;
 					break;
 				}
 			}
 			if (right == false) {
-				System.out.println(" sim: -1.0");
+				value = -1.0;
 			}
 		} else {
-			System.out.println(" sim: 0.0");
+			value = 0.0;
 		}
+
+		return value;
 
 		// List<Triplet> inputList = new ArrayList<>();
 		//

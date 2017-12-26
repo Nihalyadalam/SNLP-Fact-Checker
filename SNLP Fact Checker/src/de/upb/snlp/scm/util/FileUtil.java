@@ -1,12 +1,19 @@
 package de.upb.snlp.scm.util;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+import de.upb.snlp.scm.model.Input;
 
 /**
  * 
@@ -55,5 +62,29 @@ public class FileUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public static List<Input> readTSV(String filePath) {
+		List<Input> inputs = new ArrayList<>();
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));) {
+			String line;
+			int lineCount = 0;
+			while ((line = br.readLine()) != null) {
+				if (lineCount != 0) {
+					String[] tabs = line.split("\t");
+					long id = Long.valueOf(tabs[0]);
+					String sentence = tabs[1];
+					double value = Double.valueOf(tabs[2]);
+					value = value == 0.0 ? -1.0 : value;
+					inputs.add(new Input(id, sentence, value));
+				}
+				lineCount++;
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return inputs;
 	}
 }
