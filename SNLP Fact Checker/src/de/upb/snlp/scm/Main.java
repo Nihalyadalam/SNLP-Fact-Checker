@@ -6,6 +6,7 @@ import de.upb.snlp.scm.core.Network;
 import de.upb.snlp.scm.core.Parser;
 import de.upb.snlp.scm.core.Relation;
 import de.upb.snlp.scm.model.Triplet;
+import de.upb.snlp.scm.util.ListUtil;
 
 /**
  * 
@@ -16,46 +17,15 @@ public class Main {
 
 	public static void main(String args[]) {
 
-		// findExactInfo("Sinclair Lewis' award is Nobel Prize in Physics.");
-		// findExactInfo("Tom Hanks' birth place is Los Angeles.");
-		// findExactInfo("Martina Navratilova's birth place is Prague.");
-		// findExactInfo("Tony Blair's birth place is Edinburgh.");
-		// findExactInfo("Harry S. Truman's birth place is Memphis,
-		// Tennessee.");
-		// findExactInfo("George W. Bush's birth place is New Haven,
-		// Connecticut.");
-		// findExactInfo("Oak Hill, West Virginia is Hank Williams' last
-		// place.");
-		// findExactInfo("Los Angeles is Hal Roach's last place.");
-		// findExactInfo("Hugo Chávez's death place is Caracas.");
-		// findExactInfo("Nobel Prize in Literature is David Baltimore's
-		// honour.");
-		// findExactInfo("International Atomic Energy Agency's award is Nobel
-		// Prize in Literature.");
 		// TODO: findExactInfo("Naples, Florida is Donna Summer's death
 		// place.");
 		// findExactInfo("Wilhelm Röntgen's award is Nobel Prize in Physics.");
 		// TODO: findExactInfo("Nobel Prize in Physics is John Strutt, 3rd Baron
-		// Rayleigh's honour. ");
-		findExactInfo("Maria das Neves' office is Israel.");
-		findExactInfo("Jigme Thinley's office is Bhutan.");
-		// findExactInfo("São Tomé and Príncipe is Aimo Cajander's role.");
-		// findExactInfo("Dom Mintoff's office is Spain.");
-		// findExactInfo("Saginaw, Michigan is Stevie Wonder's nascence
-		// place.");
-		// findExactInfo("Martina Navratilova's birth place is Prague.");
-		// findExactInfo("Kwame Brown's team is Detroit Pistons.");
-		// findExactInfo("Golden State Warriors is Kwame Brown's squad.");
-		// findExactInfo("Intec Telecom Systems' foundation place is Woking.");
-		// findExactInfo("Hong Kong is Team and Concepts' innovation place.");
-		// findExactInfo("Hugo Chávez's death place is Caracas.");
-		// findExactInfo("Los Angeles is Fred Astaire's last place.");
-		// findExactInfo("Mad Max stars Hugh Keays-Byrne.");
-		// findExactInfo("John Wyndham is The Boat of a Million Years'
-		// generator.");
-		// findExactInfo("Neuromancer's author is Edwin Abbott Abbott.");
-		// findExactInfo("Westwood Studios is Electronic Arts' subordinate.");
-		// findExactInfo("Yahoo!'s subsidiary is Zimbra.");
+		// TODO: novel findExactInfo("Iain Banks is Whit's generator.");
+		findExactInfo("Yahoo!'s subsidiary is BlueLithium.");
+		findExactInfo("Yahoo!'s subsidiary is EGroups.");
+		findExactInfo("Snapfish is Hewlett-Packard's subordinate.");
+		findExactInfo("SBEA Systems' subsidiary is Plumtree Software.");
 
 		// String classifierPath = Config.NER_3_CLASSIFIER;
 		//
@@ -176,17 +146,22 @@ public class Main {
 
 		System.out.print(inputRelations);
 		boolean right = false;
-		for (Triplet t : triplets) {
-			if (t.getObject().contains(inputRelations.getObject())
-					|| inputRelations.getObject().contains(t.getObject())) {
-				System.out.println(" sim: " + 1.0);
-				right = true;
-				break;
+		if (ListUtil.isNotEmpty(triplets)) {
+			for (Triplet t : triplets) {
+				if (t.getObject().contains(inputRelations.getObject())
+						|| inputRelations.getObject().contains(t.getObject())) {
+					System.out.println(" sim: " + 1.0);
+					right = true;
+					break;
+				}
 			}
-		}
-		if (right == false) {
+			if (right == false) {
+				System.out.println(" sim: -1.0");
+			}
+		} else {
 			System.out.println(" sim: 0.0");
 		}
+
 		// List<Triplet> inputList = new ArrayList<>();
 		//
 		// List<String> inputObjects = new ArrayList<>();

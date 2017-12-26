@@ -54,22 +54,21 @@ public class Relation {
 		} else if (input.contains("innovation place")) {
 			return Parser.parseInverted(input, "innovation place", FOUND);
 		} else if (input.startsWith("Stars")) {
-			String s = "Stars Jonah Hill has been clerked Clerks.";
 			String subject = input.substring("Stars ".length(), input.indexOf(" has been"));
 			String object = input.substring(input.lastIndexOf(' ') + 1);
 			object = Parser.normalize(object);
 			return new Triplet(subject, STARS, object);
 		} else if (input.contains("stars")) {
 			int predIndex = input.indexOf("stars");
-			String object = input.substring(0, predIndex);
-			String subject = input.substring(predIndex + "stars".length() + 1, input.length());
-			object = Parser.normalize(object);
+			String subject = input.substring(0, predIndex);
+			String object = input.substring(predIndex + "stars".length() + 1, input.length());
 			subject = Parser.normalize(subject);
+			object = Parser.normalize(object);
 			return new Triplet(subject, STARS, object);
 		} else if (input.contains("author is")) {
-			return TripletUtil.swap(Parser.parseRegular(input, "author is", AUTHOR));
+			return Parser.parseRegular(input, "author is", AUTHOR);
 		} else if (input.contains(" generator.")) {
-			return TripletUtil.swap(Parser.parseInverted(input, "generator", AUTHOR));
+			return Parser.parseInverted(input, "generator", AUTHOR);
 		} else if (input.contains("subordinate")) {
 			return TripletUtil.swap(Parser.parseInverted(input, "subordinate", SUBSIDIARY));
 		} else if (input.contains("subsidiary")) {

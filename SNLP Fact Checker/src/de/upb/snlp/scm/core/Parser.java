@@ -11,6 +11,7 @@ import org.jsoup.select.Elements;
 
 import de.upb.snlp.scm.model.Triplet;
 import de.upb.snlp.scm.util.Config;
+import de.upb.snlp.scm.util.ListUtil;
 
 /**
  * 
@@ -35,22 +36,61 @@ public class Parser {
 
 	public static List<Triplet> getInfobox(String subject, Document doc) {
 		List<Triplet> triplets = new ArrayList<>();
-		Elements infoboxRows = doc.select("table[class*=infobox]").get(0).select("tbody").select("tr");
-		for (Element e : infoboxRows) {
-			String line = e.text();
-			if (line.startsWith("Born")) {
-				triplets.addAll(getBirthInfo(subject, line));
-			} else if (line.startsWith("Died")) {
-				triplets.addAll(getDeathInfo(subject, line));
-			} else if (line.startsWith("Awards")) {
-				triplets.addAll(getAwardInfo(subject, line));
-			} else if (line.startsWith("Spouse")) {
-				triplets.addAll(getSpouseInfo(subject, line));
-			} else if (line.contains("Prime Minister of")) {
-				triplets.addAll(getLeaderInfo(subject, line));
+		Elements infobox = doc.select("table[class*=infobox]");
+		if (ListUtil.isNotEmpty(infobox)) {
+			Elements infoboxRows = infobox.get(0).select("tbody").select("tr");
+			for (Element e : infoboxRows) {
+				String line = e.text();
+				if (line.startsWith("Born")) {
+					triplets.addAll(getBirthInfo(subject, line));
+				} else if (line.startsWith("Died")) {
+					triplets.addAll(getDeathInfo(subject, line));
+				} else if (line.startsWith("Awards")) {
+					triplets.addAll(getAwardInfo(subject, line));
+				} else if (line.startsWith("Spouse")) {
+					triplets.addAll(getSpouseInfo(subject, line));
+				} else if (line.contains("Prime Minister of")) {
+					triplets.addAll(getLeaderInfo(subject, line));
+				} else if (line.contains("Founded")) {
+					triplets.addAll(getFoundationInfo(subject, line));
+				} else if (line.contains("Starring")) {
+					triplets.addAll(getStarringInfo(subject, line));
+				} else if (line.contains("Author")) {
+					triplets.addAll(getStarringInfo(subject, line));
+				}
+
+				// else if (line.contains("Career history")) {
+				// triplets.addAll(getTeamInfo(subject, line));
+				// }
 			}
 		}
+
 		return triplets;
+	}
+
+	public static List<Triplet> getFoundationInfo(String subject, String line) {
+		List<Triplet> birthInfo = new ArrayList<>();
+		Map<String, LinkedHashSet<String>> entityMap = NLP.findNamedEntities(line, Config.NER_3_CLASSIFIER);
+		LinkedHashSet<String> locationSet = entityMap.get("LOCATION");
+
+		if (locationSet != null) {
+			for (String s : locationSet) {
+				Triplet t1 = new Triplet(subject, Relation.FOUND, s);
+				// Triplet t2 = new Triplet(subject, "be bear in", s);
+				birthInfo.add(t1);
+				// birthInfo.add(t2);
+			}
+		} else {
+			locationSet = new LinkedHashSet<>();
+		}
+
+		String[] locations = line.substring(line.indexOf("Founded") + "Founded".length(), line.length()).split(",");
+
+		for (String l : locations) {
+			locationSet.add(l);
+		}
+
+		return birthInfo;
 	}
 
 	public static List<Triplet> getLeaderInfo(String subject, String line) {
@@ -67,6 +107,7 @@ public class Parser {
 		List<Triplet> birthInfo = new ArrayList<>();
 		Map<String, LinkedHashSet<String>> entityMap = NLP.findNamedEntities(line, Config.NER_3_CLASSIFIER);
 		LinkedHashSet<String> locationSet = entityMap.get("LOCATION");
+
 		if (locationSet != null) {
 			for (String s : locationSet) {
 				Triplet t1 = new Triplet(subject, Relation.DIE_IN, s);
@@ -103,6 +144,43 @@ public class Parser {
 			Triplet t1 = new Triplet(subject, Relation.AWARD, s.trim());
 			info.add(t1);
 		}
+		return info;
+	}
+
+	public static List<Triplet> getStarringInfo(String subject, String line) {
+		List<Triplet> info = new ArrayList<>();
+		// Awards Nobel Peace Prize (1901)
+		String[] stars = line.substring("Starring".length() + 1, line.length()).split(" ");
+
+		for (String s : stars) {
+			Triplet t1 = new Triplet(subject, Relation.STARS, s.trim());
+			info.add(t1);
+		}
+		return info;
+	}
+
+	public static List<Triplet> getAuthorInfo(String subject, String line) {
+		List<Triplet> info = new ArrayList<>();
+		// Awards Nobel Peace Prize (1901)
+		String[] authors = line.substring("Author".length() + 1, line.length()).split(" ");
+
+		for (String s : authors) {
+			Triplet t1 = new Triplet(subject, Relation.AUTHOR, s.trim());
+			info.add(t1);
+		}
+		return info;
+	}
+
+	public static List<Triplet> getTeamInfo(String subject, String line) {
+		List<Triplet> info = new ArrayList<>();
+		// Awards Nobel Peace Prize (1901)
+		// String[] awards = line.split("\\(\\d{4}\\)");
+		System.out.println(line);
+
+		// for (String s : awards) {
+		// Triplet t1 = new Triplet(subject, Relation.AWARD, s.trim());
+		// info.add(t1);
+		// }
 		return info;
 	}
 
