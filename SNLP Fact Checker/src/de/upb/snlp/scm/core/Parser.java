@@ -198,7 +198,7 @@ public class Parser {
 
 	public static String normalize(String input) {
 		if (input.contains("'")) {
-			int apIndex = input.indexOf("'");
+			int apIndex = input.lastIndexOf("'");
 			input = input.substring(0, apIndex);
 		}
 		input = input.split(",")[0];

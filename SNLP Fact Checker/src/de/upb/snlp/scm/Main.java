@@ -44,6 +44,10 @@ public class Main {
 
 		}
 
+		// String inp = "A Connecticut Yankee in King Arthur's Court's author is
+		// Greg Bear.";
+		// findExactInfo(inp);
+
 		System.out.println("True: " + trueCount);
 		System.out.println("False: " + falseCount);
 		// TODO: findExactInfo("Naples, Florida is Donna Summer's death
