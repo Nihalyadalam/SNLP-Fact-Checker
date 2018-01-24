@@ -24,6 +24,8 @@ public class Main {
 		int trueCount = 0;
 		int falseCount = 0;
 
+		StringBuilder ouput = new StringBuilder();
+
 		for (Input i : inputs) {
 			double value = 0;
 			try {
@@ -33,6 +35,7 @@ public class Main {
 				e.printStackTrace();
 			}
 			System.out.print(i.getSentence() + "\t");
+			ouput.append(createTTLLine(i));
 			if (i.getValue() == value) {
 				System.out.print("True" + "\t");
 				trueCount++;
@@ -44,6 +47,8 @@ public class Main {
 
 		}
 
+		FileUtil.writeToFile("data/result.ttl", ouput.toString());
+		
 		// String inp = "A Connecticut Yankee in King Arthur's Court's author is
 		// Greg Bear.";
 		// findExactInfo(inp);
@@ -148,6 +153,15 @@ public class Main {
 		// break;
 		// }
 
+	}
+
+	private static String createTTLLine(Input input) {
+		StringBuilder str = new StringBuilder();
+		str.append("<http://swc2017.aksw.org/task2/dataset/").append(input.getId()).append(">")
+				.append("<http://swc2017.aksw.org/hasTruthValue>\"").append(input.getValue())
+				.append("\"^^<http://www.w3.org/2001/XMLSchema#double> .").append("\n");
+
+		return str.toString();
 	}
 
 	private static double findExactInfo(String input) {
