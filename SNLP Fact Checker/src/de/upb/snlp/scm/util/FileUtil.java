@@ -74,8 +74,13 @@ public class FileUtil {
 					String[] tabs = line.split("\t");
 					long id = Long.valueOf(tabs[0]);
 					String sentence = tabs[1];
-					double value = Double.valueOf(tabs[2]);
-					value = value == 0.0 ? -1.0 : value;
+					double value = 0;
+					try{
+						value = Double.valueOf(tabs[2]);
+						value = value == 0.0 ? -1.0 : value;
+					} catch(ArrayIndexOutOfBoundsException e){
+						// test file
+					}
 					inputs.add(new Input(id, sentence, value));
 				}
 				lineCount++;

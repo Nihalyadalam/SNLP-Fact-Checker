@@ -1,5 +1,7 @@
 package de.upb.snlp.scm;
 
+import de.upb.snlp.scm.core.Similarity;
+import de.upb.snlp.scm.model.Triplet;
 import edu.cmu.lti.lexical_db.ILexicalDatabase;
 import edu.cmu.lti.lexical_db.NictWordNet;
 import edu.cmu.lti.ws4j.RelatednessCalculator;
@@ -54,12 +56,17 @@ public class Test {
 	}
 
 	public static void main(String[] args) {
-		long t0 = System.currentTimeMillis();
-		String[] words1 = { "make", "do", "together", "potato" };
-		String[] words2 = { "make", "do", "never", "tomato" };
-		// run("make", "do");
-		runs(words1, words2);
-		long t1 = System.currentTimeMillis();
-		System.out.println("Done in " + (t1 - t0) + " msec.");
+//		long t0 = System.currentTimeMillis();
+//		String[] words1 = { "make", "do", "together", "potato" };
+//		String[] words2 = { "make", "do", "never", "tomato" };
+//		// run("make", "do");
+//		runs(words1, words2);
+//		long t1 = System.currentTimeMillis();
+//		System.out.println("Done in " + (t1 - t0) + " msec.");
+		Triplet t1 = new Triplet("Elizabeth Taylor", "die in", "Washtingon");
+		Triplet t2 = new Triplet("Elizabeth Taylor", "die in", "Los Angeles");
+		Similarity similarity = new Similarity(Similarity.WU_PALMER);
+		double sim = similarity.findSimilarity(t1, t2);
+		System.out.println(sim);
 	}
 }
