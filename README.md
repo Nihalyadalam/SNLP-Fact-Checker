@@ -38,3 +38,4 @@ Given a list of sentences test the correctness of each sentence
 - create a folder called `data` and put `test.tsv` file in this folder
 - set VM arguments as follows: `-Xmx3060m -Dfile.encoding=UTF-8`
 - run Main file `de.upb.snlp.scm.Main`
+- `result.ttl` file will be created in `data` folder
