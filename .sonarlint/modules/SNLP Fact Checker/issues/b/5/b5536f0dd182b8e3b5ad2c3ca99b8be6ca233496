@@ -1,16 +1,0 @@
-
-gsquid:S1118":Add a private constructor to hide the implicit public one.(ë›Å²HçRMAJORZ
-CODE_SMELL
-ˆsquid:S4165"bRemove this useless assignment; "pair" already holds the assigned value along all execution paths.(ÐúþŽHãRMAJORZBUG
-}squid:CommentedOutCodeLineD"<This block of commented-out lines of code should be removed.(Ìûë´úÿÿÿÿHåRMAJORZ
-CODE_SMELL
-nsquid:UnusedPrivateMethodN"4Remove this unused private "simplifyTriples" method.(•ÖŒHHàRMAJORZ
-CODE_SMELL
-ysquid:S1871/"LThis branch's code block is the same as the block for the branch on line 37.(äÁ§‡HâRMAJORZ
-CODE_SMELL
-~squid:S1871*"LThis branch's code block is the same as the block for the branch on line 32.(Ý•¥ùÿÿÿÿHáRMAJORZ
-CODE_SMELL
-}squid:CommentedOutCodeLineX"<This block of commented-out lines of code should be removed.(Ìûë´úÿÿÿÿHæRMAJORZ
-CODE_SMELL
-xsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ý„ÂãHäRMAJORZ
-CODE_SMELL

@@ -1,20 +1,0 @@
-
-Xsquid:S1148Y"#Use a logger to log this exception.(А╔╘Е¤    HЁRMINORZVULNERABILITY
-Xsquid:S1148+"#Use a logger to log this exception.(А╔╘Е¤    HїRMINORZVULNERABILITY
-Xsquid:S1148["#Use a logger to log this exception.(А╔╘Е¤    HёRMINORZVULNERABILITY
-Xsquid:S1148?"#Use a logger to log this exception.(А╔╘Е¤    HЄRMINORZVULNERABILITY
-csquid:S1135$"2Complete the task associated to this TODO comment.(╒╠Ро■    HєRINFOZ
-CODE_SMELL
-lsquid:S1118":Add a private constructor to hide the implicit public one.(З█Я┌¤    HэRMAJORZ
-CODE_SMELL
-jsquid:S2130K"8Use "Long.parseLong" for this string-to-long conversion.(▓Ро┐°    HюRMINORZ
-CODE_SMELL
-qsquid:S2147Z"DCombine this catch with the one at line 88, which has the same body.(янг─HыRMINORZ
-CODE_SMELL
-csquid:S1135>"2Complete the task associated to this TODO comment.(╒╠Ро■    HЇRINFOZ
-CODE_SMELL
-csquid:S1135*"2Complete the task associated to this TODO comment.(╒╠Ро■    HяRINFOZ
-CODE_SMELL
-Xsquid:S1148%"#Use a logger to log this exception.(А╔╘Е¤    HЎRMINORZVULNERABILITY
-nsquid:S1141N"5Extract this nested try block into a separate method.(б╗в№∙    8ЪТ¤ЁТ,H№RMAJORZ
-CODE_SMELL

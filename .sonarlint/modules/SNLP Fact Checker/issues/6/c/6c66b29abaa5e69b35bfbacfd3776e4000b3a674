@@ -1,38 +1,0 @@
-
-wsquid:CommentedOutCodeLiner"<This block of commented-out lines of code should be removed.(Èø—cHÿRMAJORZ
-CODE_SMELL
-xsquid:S3027É"JPut single-quotes around ''' to use the faster "lastIndexOf(char)" method.(“ªºH€RMAJORZ
-CODE_SMELL
-ysquid:CommentedOutCodeLine´"<This block of commented-out lines of code should be removed.(¼¡÷šHRMAJORZ
-CODE_SMELL
-ysquid:S3027 "GPut single-quotes around '\n' to use the faster "indexOf(char)" method.(©ÄÁÛýÿÿÿÿH‚RMAJORZ
-CODE_SMELL
-~squid:S1192J"IDefine a constant instead of duplicating this literal "LOCATION" 3 times.(¨½ˆ¦ÿÿÿÿÿHƒRCRITICALZ
-CODE_SMELL
-ysquid:CommentedOutCodeLine±"<This block of commented-out lines of code should be removed.(ƒã—ˆH„RMAJORZ
-CODE_SMELL
-‡squid:S11924"RDefine a constant instead of duplicating this literal "Prime Minister of" 3 times.(“žÍœøÿÿÿÿH…RCRITICALZ
-CODE_SMELL
-}squid:CommentedOutCodeLinet"<This block of commented-out lines of code should be removed.(°Ëƒ øÿÿÿÿH†RMAJORZ
-CODE_SMELL
-\squid:S1172®".Remove this unused method parameter "subject".(Þ™«®H‡RMAJORZ
-CODE_SMELL
-}squid:CommentedOutCodeLineQ"<This block of commented-out lines of code should be removed.(°Ëƒ øÿÿÿÿHˆRMAJORZ
-CODE_SMELL
-~squid:CommentedOutCodeLineƒ"<This block of commented-out lines of code should be removed.(°Ëƒ øÿÿÿÿH‰RMAJORZ
-CODE_SMELL
-k
-squid:S106²"9Replace this use of System.out or System.err by a logger.(ñ—¸½úÿÿÿÿHŠRMAJORZ
-CODE_SMELL
-xsquid:CommentedOutCodeLineO"<This block of commented-out lines of code should be removed.(ëøã¹H‹RMAJORZ
-CODE_SMELL
-}squid:S11926"HDefine a constant instead of duplicating this literal "Founded" 3 times.(Ïš•ÎùÿÿÿÿHŒRCRITICALZ
-CODE_SMELL
-lsquid:S1118":Add a private constructor to hide the implicit public one.(ãòÙÂøÿÿÿÿHRMAJORZ
-CODE_SMELL
-ysquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ëøã¹HŽRMAJORZ
-CODE_SMELL
-tsquid:S3027"GPut single-quotes around '\n' to use the faster "indexOf(char)" method.(¦ä›™HRMAJORZ
-CODE_SMELL
-xsquid:CommentedOutCodeLine>"<This block of commented-out lines of code should be removed.(—¬è›HRMAJORZ
-CODE_SMELL
