@@ -23,6 +23,7 @@ import edu.stanford.nlp.process.DocumentPreprocessor;
 import edu.stanford.nlp.util.CoreMap;
 
 /**
+ * Stanford Core Open IE utilities
  * 
  * @author Kadiray Karakaya
  *

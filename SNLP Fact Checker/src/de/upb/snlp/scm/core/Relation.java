@@ -22,6 +22,14 @@ public class Relation {
 	public static final String SUBSIDIARY = "subsidiary";
 	public static final String UNKNOWN = "unknown";
 
+	/**
+	 * extracts known triples from the given sentence
+	 * 
+	 * @param input
+	 *            is the given sentence
+	 * @return returns found relation Triplet
+	 * @see Triplet
+	 */
 	public static Triplet findRelation(String input) {
 		String relation = null;
 		Triplet triplet = null;

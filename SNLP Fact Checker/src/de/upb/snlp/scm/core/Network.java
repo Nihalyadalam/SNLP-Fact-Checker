@@ -6,6 +6,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 /**
+ * Network utility class
  * 
  * @author Kadiray Karakaya
  *
@@ -14,6 +15,12 @@ public class Network {
 
 	public static Document doc = null;
 
+	/**
+	 * fetches wikipedia article as html and returns as plain text
+	 * 
+	 * @param title
+	 * @return
+	 */
 	public static String getCorpus(String title) {
 		String plaintext = null;
 		try {

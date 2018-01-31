@@ -8,11 +8,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Utility class for Map interface
  * 
  * @author Kadiray Karakaya
  *
  */
 public class MapUtil {
+	/**
+	 * Sorts elements of the map by value
+	 * 
+	 * @param map
+	 * @return
+	 */
 	public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
 		List<Map.Entry<K, V>> list = new LinkedList<Map.Entry<K, V>>(map.entrySet());
 		Collections.sort(list, new Comparator<Map.Entry<K, V>>() {

@@ -64,6 +64,13 @@ public class FileUtil {
 		}
 	}
 
+	/**
+	 * Reads TSV file format to a list of Input objects
+	 * 
+	 * @param filePath
+	 * @return
+	 * @see Input
+	 */
 	public static List<Input> readTSV(String filePath) {
 		List<Input> inputs = new ArrayList<>();
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));) {
@@ -75,10 +82,10 @@ public class FileUtil {
 					long id = Long.valueOf(tabs[0]);
 					String sentence = tabs[1];
 					double value = 0;
-					try{
+					try {
 						value = Double.valueOf(tabs[2]);
 						value = value == 0.0 ? -1.0 : value;
-					} catch(ArrayIndexOutOfBoundsException e){
+					} catch (ArrayIndexOutOfBoundsException e) {
 						// test file
 					}
 					inputs.add(new Input(id, sentence, value));
@@ -91,5 +98,14 @@ public class FileUtil {
 			e.printStackTrace();
 		}
 		return inputs;
+	}
+
+	public static String createTTLLine(String id, double value) {
+		StringBuilder str = new StringBuilder();
+		str.append("<http://swc2017.aksw.org/task2/dataset/").append(id).append(">")
+				.append("<http://swc2017.aksw.org/hasTruthValue>\"").append(value)
+				.append("\"^^<http://www.w3.org/2001/XMLSchema#double> .").append("\n");
+
+		return str.toString();
 	}
 }

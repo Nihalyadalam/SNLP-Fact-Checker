@@ -8,6 +8,8 @@ import java.util.Properties;
 
 /**
  * 
+ * Utility class for accessing configuration parameters
+ * 
  * @author Kadiray Karakaya
  *
  */
@@ -26,10 +28,14 @@ public class Config {
 	public static String NER_7_CLASSIFIER;
 
 	public static String TEST_FILE;
-	
+
 	public static String TEST_FILE_2;
-	
+
 	public static String DEBUG;
+
+	public static String INPUT_FILE;
+
+	public static String OUTPUT_FILE;
 
 	static {
 		props = new Properties();
