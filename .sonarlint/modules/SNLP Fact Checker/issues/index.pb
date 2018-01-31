@@ -15,3 +15,19 @@ M
 src/de/upb/snlp/scm/Main.java,b\9\b9f5fcc561852101cd32eb312007917976beafab
 ?
 data/result.ttl,3\e\3e453e107d76a3dda6fa2672eb938d4ba8faaadd
+U
+%src/de/upb/snlp/scm/core/Network.java,9\c\9c3a1c32b481177f2a4fb01c8cb22b529ebf04f7
+X
+(src/de/upb/snlp/scm/core/Similarity.java,d\9\d92e6bbce33fb500f5d24dc3cc423da5bdd6488a
+Q
+!src/de/upb/snlp/scm/core/NLP.java,4\0\40fc8753650f2c3221a732d2d67289f06ef67863
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+V
+&src/de/upb/snlp/scm/model/Triplet.java,9\3\932d07f0fe873f5fb475b091275c505757501c3f
+Y
+)src/de/upb/snlp/scm/core/TripletUtil.java,b\5\b5536f0dd182b8e3b5ad2c3ca99b8be6ca233496
+U
+%src/de/upb/snlp/scm/core/Pattern.java,4\2\42cf9d322c9d714d9125a241e3193d814e651783
+M
+src/de/upb/snlp/scm/Test.java,6\9\6963898915ac602ad6da17a51edba2529fec1255

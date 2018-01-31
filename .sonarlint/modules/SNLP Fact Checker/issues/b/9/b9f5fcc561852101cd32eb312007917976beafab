@@ -1,145 +1,80 @@
 
-xsquid:CommentedOutCodeLine`"<This block of commented-out lines of code should be removed.(üÐ¹”Hü
-RMAJORZ
+}squid:CommentedOutCodeLineN"<This block of commented-out lines of code should be removed.(æß¶êÿÿÿÿÿH¼RMAJORZ
 CODE_SMELL
-xsquid:CommentedOutCodeLineZ"<This block of commented-out lines of code should be removed.(‘ÓÀˆH£RMAJORZ
+‰squid:S3776F"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Úé¿Â8Á©ž¸”,HâRCRITICALZ
 CODE_SMELL
-ysquid:CommentedOutCodeLine„"<This block of commented-out lines of code should be removed.(ÄÐ…ªHŠRMAJORZ
+~squid:CommentedOutCodeLineÉ"<This block of commented-out lines of code should be removed.(÷¦®•úÿÿÿÿHÕRMAJORZ
 CODE_SMELL
-xsquid:CommentedOutCodeLines"<This block of commented-out lines of code should be removed.(îž”®HˆRMAJORZ
+gsquid:S1854d":Remove this useless assignment to local variable "corpus".(ƒ›óŠHÎRMAJORZ
 CODE_SMELL
-~squid:CommentedOutCodeLine¹"<This block of commented-out lines of code should be removed.(ž²ÜµúÿÿÿÿH¸RMAJORZ
+l
+squid:S1069"9Replace this use of System.out or System.err by a logger.(«ÏÈ×8òñï’,HÈRMAJORZ
 CODE_SMELL
-~squid:CommentedOutCodeLine”"<This block of commented-out lines of code should be removed.(Ä¦öûÿÿÿÿH¹RMAJORZ
+xsquid:CommentedOutCodeLineL"<This block of commented-out lines of code should be removed.(«—ã¤HÖRMAJORZ
 CODE_SMELL
-}squid:CommentedOutCodeLineV"<This block of commented-out lines of code should be removed.(–ûù£ùÿÿÿÿH™RMAJORZ
+€squid:CommentedOutCodeLine¢"<This block of commented-out lines of code should be removed.(‘ÓÀˆ8òñï’,HÌRMAJORZ
 CODE_SMELL
-xsquid:CommentedOutCodeLine6"<This block of commented-out lines of code should be removed.(Ø–ñýHœRMAJORZ
+xsquid:CommentedOutCodeLineW"<This block of commented-out lines of code should be removed.(ÊþÿòH½RMAJORZ
 CODE_SMELL
-~squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ä¦öûÿÿÿÿHRMAJORZ
+jsquid:S1197"8Move the array designator from the variable to the type.(¡þÏÖøÿÿÿÿHÓRMINORZ
 CODE_SMELL
-ysquid:CommentedOutCodeLineø"<This block of commented-out lines of code should be removed.(îž”®HRMAJORZ
+…squid:CommentedOutCodeLinež"<This block of commented-out lines of code should be removed.(–ûù£ùÿÿÿÿ8òñï’,HÊRMAJORZ
 CODE_SMELL
-ysquid:CommentedOutCodeLine¯"<This block of commented-out lines of code should be removed.(®ÚÌäH“RMAJORZ
+~squid:CommentedOutCodeLine½"<This block of commented-out lines of code should be removed.(–’ŠûúÿÿÿÿHÛRMAJORZ
 CODE_SMELL
-Wsquid:S1125Ò")Remove the literal "false" boolean value.(‰ÀÆ¡H¬RMINORZ
+…squid:CommentedOutCodeLineÅ"<This block of commented-out lines of code should be removed.(ûáÔŠýÿÿÿÿ8òñï’,HÂRMAJORZ
 CODE_SMELL
-xsquid:CommentedOutCodeLineG"<This block of commented-out lines of code should be removed.(ª¢“óH¨RMAJORZ
+}squid:CommentedOutCodeLineZ"<This block of commented-out lines of code should be removed.(ž²ÜµúÿÿÿÿHÚRMAJORZ
 CODE_SMELL
-}squid:CommentedOutCodeLine}"<This block of commented-out lines of code should be removed.(ûáÔŠýÿÿÿÿH²RMAJORZ
+k
+squid:S1068"9Replace this use of System.out or System.err by a logger.(èÂØ38òñï’,HØRMAJORZ
 CODE_SMELL
-~squid:CommentedOutCodeLine‚"<This block of commented-out lines of code should be removed.(ûáÔŠýÿÿÿÿHù
-RMAJORZ
+squid:CommentedOutCodeLineP"<This block of commented-out lines of code should be removed.(®ÚÌä8òñï’,HÇRMAJORZ
 CODE_SMELL
-}squid:CommentedOutCodeLineu"<This block of commented-out lines of code should be removed.(–’ŠûúÿÿÿÿH¢RMAJORZ
+€squid:CommentedOutCodeLine³"<This block of commented-out lines of code should be removed.(ã•Ñ‰8òñï’,HÃRMAJORZ
 CODE_SMELL
-xsquid:CommentedOutCodeLineN"<This block of commented-out lines of code should be removed.(®ÚÌäH­RMAJORZ
+_squid:S1148%"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8òñï’,HÁRMINORZVULNERABILITY
+msquid:S1854z"9Remove this useless assignment to local variable "right".(ÌŽ¿–8Á©ž¸”,HãRMAJORZ
 CODE_SMELL
-^squid:S1135?"2Complete the task associated to this TODO comment.(ù½¶áHªRINFOZ
+€squid:CommentedOutCodeLine¹"<This block of commented-out lines of code should be removed.(‚É¥8òñï’,HÆRMAJORZ
 CODE_SMELL
-ysquid:CommentedOutCodeLine˜"<This block of commented-out lines of code should be removed.(Œ¼žîH’RMAJORZ
+squid:CommentedOutCodeLine)"<This block of commented-out lines of code should be removed.(«ÇÔ§8öð†ñ’,H×RMAJORZ
 CODE_SMELL
-j
-squid:S106/"9Replace this use of System.out or System.err by a logger.(‚é€ÞûÿÿÿÿHƒRMAJORZ
+€squid:CommentedOutCodeLineÛ"<This block of commented-out lines of code should be removed.(Óë§²8òñï’,HÍRMAJORZ
 CODE_SMELL
-~squid:CommentedOutCodeLineÛ"<This block of commented-out lines of code should be removed.(–ûù£ùÿÿÿÿH•RMAJORZ
+€squid:CommentedOutCodeLine¨"<This block of commented-out lines of code should be removed.(üÐ¹”8òñï’,HÔRMAJORZ
 CODE_SMELL
-ysquid:CommentedOutCodeLineö"<This block of commented-out lines of code should be removed.(‚É¥H‡RMAJORZ
+ysquid:CommentedOutCodeLine»"<This block of commented-out lines of code should be removed.(îž”®H¿RMAJORZ
 CODE_SMELL
-j
-squid:S106+"9Replace this use of System.out or System.err by a logger.(Ù–ÅƒøÿÿÿÿHû
-RMAJORZ
+squid:CommentedOutCodeLineÕ"<This block of commented-out lines of code should be removed.(û‹üH8òñï’,HºRMAJORZ
 CODE_SMELL
-Ysquid:S1481Ã"+Remove this unused "corpus" local variable.(ƒ›óŠH¤RMINORZ
+Vsquid:S1125}")Remove the literal "false" boolean value.(‰ÀÆ¡HàRMINORZ
 CODE_SMELL
-xsquid:CommentedOutCodeLine?"<This block of commented-out lines of code should be removed.(ù½¶áHµRMAJORZ
+q
+squid:S106'"9Replace this use of System.out or System.err by a logger.(–¼œÐúÿÿÿÿ8Å»¿ì’,H»RMAJORZ
 CODE_SMELL
-csquid:S1135;"2Complete the task associated to this TODO comment.(Ê¿ŒýÿÿÿÿH„RINFOZ
+ysquid:CommentedOutCodeLineÃ"<This block of commented-out lines of code should be removed.(Áøê—HÒRMAJORZ
 CODE_SMELL
-~squid:CommentedOutCodeLine†"<This block of commented-out lines of code should be removed.(÷¦®•úÿÿÿÿH§RMAJORZ
+Xsquid:S1481d"+Remove this unused "corpus" local variable.(ƒ›óŠHÀRMINORZ
 CODE_SMELL
-ysquid:CommentedOutCodeLine˜"<This block of commented-out lines of code should be removed.(Óë§²Hÿ
-RMAJORZ
+€squid:CommentedOutCodeLineÇ"<This block of commented-out lines of code should be removed.(ÄÐ…ª8òñï’,H¾RMAJORZ
 CODE_SMELL
-xsquid:CommentedOutCodeLinek"<This block of commented-out lines of code should be removed.(ã•Ñ‰H–RMAJORZ
+q
+squid:S1062"9Replace this use of System.out or System.err by a logger.(‚é€Þûÿÿÿÿ8òñï’,HÄRMAJORZ
 CODE_SMELL
-ysquid:CommentedOutCodeLineå"<This block of commented-out lines of code should be removed.(üÐ¹”H‰RMAJORZ
+…squid:CommentedOutCodeLine¶"<This block of commented-out lines of code should be removed.(ô½’Ïüÿÿÿÿ8òñï’,HÉRMAJORZ
 CODE_SMELL
-ysquid:CommentedOutCodeLine“"<This block of commented-out lines of code should be removed.(Óë§²H®RMAJORZ
+ysquid:CommentedOutCodeLineà"<This block of commented-out lines of code should be removed.(Œ¼žîHÙRMAJORZ
 CODE_SMELL
-}squid:CommentedOutCodeLineX"<This block of commented-out lines of code should be removed.(„ïÊ¶úÿÿÿÿHþ
-RMAJORZ
+}squid:CommentedOutCodeLineR"<This block of commented-out lines of code should be removed.(®¹¦ïþÿÿÿÿHÅRMAJORZ
 CODE_SMELL
-jsquid:S1197"8Move the array designator from the variable to the type.(¡þÏÖøÿÿÿÿH”RMINORZ
+~squid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(„ïÊ¶úÿÿÿÿHËRMAJORZ
 CODE_SMELL
-xsquid:CommentedOutCodeLineE"<This block of commented-out lines of code should be removed.(¢§ÕüH´RMAJORZ
+€squid:CommentedOutCodeLine°"<This block of commented-out lines of code should be removed.(Ó¹…µ8òñï’,HÏRMAJORZ
 CODE_SMELL
-}squid:CommentedOutCodeLinen"<This block of commented-out lines of code should be removed.(ô½’ÏüÿÿÿÿHŸRMAJORZ
+~squid:CommentedOutCodeLine×"<This block of commented-out lines of code should be removed.(Ä¦öûÿÿÿÿHÐRMAJORZ
 CODE_SMELL
-hsquid:S1854Ã":Remove this useless assignment to local variable "corpus".(ƒ›óŠH¦RMAJORZ
+…squid:CommentedOutCodeLine…"<This block of commented-out lines of code should be removed.(Ÿ¦ìÌÿÿÿÿÿ8öÂÆ¸”,HçRMAJORZ
 CODE_SMELL
-xsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÄÐ…ªH—RMAJORZ
-CODE_SMELL
-~squid:CommentedOutCodeLine­"<This block of commented-out lines of code should be removed.(æß¶êÿÿÿÿÿH…RMAJORZ
-CODE_SMELL
-}squid:CommentedOutCodeLine<"<This block of commented-out lines of code should be removed.(ì†äÎøÿÿÿÿH‹RMAJORZ
-CODE_SMELL
-Xsquid:S1148#"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH‘RMINORZVULNERABILITY
-j
-squid:S106%"9Replace this use of System.out or System.err by a logger.(–¼œÐúÿÿÿÿH‚RMAJORZ
-CODE_SMELL
-~squid:CommentedOutCodeLineú"<This block of commented-out lines of code should be removed.(–’ŠûúÿÿÿÿH€RMAJORZ
-CODE_SMELL
-}squid:CommentedOutCodeLineT"<This block of commented-out lines of code should be removed.(ž²ÜµúÿÿÿÿHRMAJORZ
-CODE_SMELL
-ysquid:CommentedOutCodeLineß"<This block of commented-out lines of code should be removed.(‘ÓÀˆH¯RMAJORZ
-CODE_SMELL
-~squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(÷¦®•úÿÿÿÿH³RMAJORZ
-CODE_SMELL
-xsquid:CommentedOutCodeLineI"<This block of commented-out lines of code should be removed.(Ö°¢õH¥RMAJORZ
-CODE_SMELL
-~squid:CommentedOutCodeLineó"<This block of commented-out lines of code should be removed.(ô½’ÏüÿÿÿÿH·RMAJORZ
-CODE_SMELL
-xsquid:CommentedOutCodeLine{"<This block of commented-out lines of code should be removed.(Áøê—HºRMAJORZ
-CODE_SMELL
-xsquid:CommentedOutCodeLineq"<This block of commented-out lines of code should be removed.(‚É¥H†RMAJORZ
-CODE_SMELL
-ysquid:CommentedOutCodeLineí"<This block of commented-out lines of code should be removed.(Ó¹…µHRMAJORZ
-CODE_SMELL
-^squid:S1135>"2Complete the task associated to this TODO comment.(ÿçÑ›Hý
-RINFOZ
-CODE_SMELL
-ysquid:CommentedOutCodeLine€"<This block of commented-out lines of code should be removed.(Áøê—H°RMAJORZ
-CODE_SMELL
-xsquid:CommentedOutCodeLine’"<This block of commented-out lines of code should be removed.(û‹üHH©RMAJORZ
-CODE_SMELL
-j
-squid:S106'"9Replace this use of System.out or System.err by a logger.(¿íÚÿÿÿÿÿH±RMAJORZ
-CODE_SMELL
-d
-squid:S1069"9Replace this use of System.out or System.err by a logger.(èÂØ3H«RMAJORZ
-CODE_SMELL
-xsquid:CommentedOutCodeLineP"<This block of commented-out lines of code should be removed.(ÞÄ…H¶RMAJORZ
-CODE_SMELL
-ysquid:CommentedOutCodeLine«"<This block of commented-out lines of code should be removed.(«—ã¤H RMAJORZ
-CODE_SMELL
-ysquid:CommentedOutCodeLine¶"<This block of commented-out lines of code should be removed.(ÊþÿòH›RMAJORZ
-CODE_SMELL
-~squid:CommentedOutCodeLineÝ"<This block of commented-out lines of code should be removed.(„ïÊ¶úÿÿÿÿHŽRMAJORZ
-CODE_SMELL
-e
-squid:S106:"9Replace this use of System.out or System.err by a logger.(«ÏÈ×Hú
-RMAJORZ
-CODE_SMELL
-ysquid:CommentedOutCodeLineð"<This block of commented-out lines of code should be removed.(ã•Ñ‰HšRMAJORZ
-CODE_SMELL
-}squid:CommentedOutCodeLineL"<This block of commented-out lines of code should be removed.(¶Š¥ùÿÿÿÿH˜RMAJORZ
-CODE_SMELL
-ysquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Œ¼žîHRMAJORZ
-CODE_SMELL
-~squid:CommentedOutCodeLine±"<This block of commented-out lines of code should be removed.(®¹¦ïþÿÿÿÿHŒRMAJORZ
-CODE_SMELL
-xsquid:CommentedOutCodeLineh"<This block of commented-out lines of code should be removed.(Ó¹…µH¡RMAJORZ
-CODE_SMELL
-xsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(û‹üHHžRMAJORZ
+ksquid:S2589}"7Remove this expression which always evaluates to "true"(‰ÀÆ¡8öÂÆ¸”,HèRMAJORZ
 CODE_SMELL

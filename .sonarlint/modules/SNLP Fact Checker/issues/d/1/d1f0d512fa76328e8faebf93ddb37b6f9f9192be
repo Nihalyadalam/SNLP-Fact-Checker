@@ -1,32 +1,20 @@
 
-csquid:S1135$"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿH¬
-RINFOZ
+Xsquid:S1148Y"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHðRMINORZVULNERABILITY
+Xsquid:S1148+"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHõRMINORZVULNERABILITY
+Xsquid:S1148["#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHñRMINORZVULNERABILITY
+Xsquid:S1148?"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHòRMINORZVULNERABILITY
+csquid:S1135$"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿHóRINFOZ
 CODE_SMELL
-csquid:S1135*"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿH­
-RINFOZ
+lsquid:S1118":Add a private constructor to hide the implicit public one.(‡ÛŸÚýÿÿÿÿHíRMAJORZ
 CODE_SMELL
-csquid:S1135>"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿH®
-RINFOZ
+jsquid:S2130K"8Use "Long.parseLong" for this string-to-long conversion.(²®¿øÿÿÿÿHîRMINORZ
 CODE_SMELL
-lsquid:S1118":Add a private constructor to hide the implicit public one.(‡ÛŸÚýÿÿÿÿH¯
-RMAJORZ
+qsquid:S2147Z"DCombine this catch with the one at line 88, which has the same body.(ï­£ÄHëRMINORZ
 CODE_SMELL
-qsquid:S2147U"DCombine this catch with the one at line 83, which has the same body.(ï­£ÄH°
-RMINORZ
+csquid:S1135>"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿHôRINFOZ
 CODE_SMELL
-Xsquid:S1148%"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH±
-RMINORZVULNERABILITY
-Xsquid:S1148+"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH²
-RMINORZVULNERABILITY
-Xsquid:S1148?"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH³
-RMINORZVULNERABILITY
-Xsquid:S1148T"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH´
-RMINORZVULNERABILITY
-Xsquid:S1148V"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHµ
-RMINORZVULNERABILITY
-jsquid:S2130K"8Use "Long.parseLong" for this string-to-long conversion.(²®¿øÿÿÿÿH¶
-RMINORZ
+csquid:S1135*"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿHïRINFOZ
 CODE_SMELL
-psquid:S2130M">Use "Double.parseDouble" for this string-to-double conversion.(š×îÜûÿÿÿÿH·
-RMINORZ
+Xsquid:S1148%"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHöRMINORZVULNERABILITY
+nsquid:S1141N"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8š’ýð’,HüRMAJORZ
 CODE_SMELL

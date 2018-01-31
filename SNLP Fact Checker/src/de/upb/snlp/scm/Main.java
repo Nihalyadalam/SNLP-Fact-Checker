@@ -1,5 +1,6 @@
 package de.upb.snlp.scm;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.upb.snlp.scm.core.Network;
@@ -37,15 +38,15 @@ public class Main {
 			}
 			System.out.print(i.getSentence() + "\t");
 			ouput.append(createTTLLine(String.valueOf(i.getId()), value));
-//			if (i.getValue() == value) {
-//				System.out.print("True" + "\t");
-//				ouput.append(createTTLLine(String.valueOf(i.getId()), value));
-//				trueCount++;
-//			} else {
-//				System.out.print("False" + "\t");
-//				ouput.append(createTTLLine(String.valueOf(i.getId()), 0.0));
-//				falseCount++;
-//			}
+			// if (i.getValue() == value) {
+			// System.out.print("True" + "\t");
+			// ouput.append(createTTLLine(String.valueOf(i.getId()), value));
+			// trueCount++;
+			// } else {
+			// System.out.print("False" + "\t");
+			// ouput.append(createTTLLine(String.valueOf(i.getId()), 0.0));
+			// falseCount++;
+			// }
 			System.out.println(value);
 
 		}
@@ -102,21 +103,52 @@ public class Main {
 
 		double value = 0;
 		boolean right = false;
+
+		List<Triplet> equalRelations = new ArrayList<>();
+
 		if (ListUtil.isNotEmpty(triplets)) {
 			for (Triplet t : triplets) {
+				if (t.getPredicate().equals(inputRelations.getPredicate())) {
+					equalRelations.add(t);
+				}
+			}
+		}
+
+		if (ListUtil.isNotEmpty(equalRelations)) {
+			for (Triplet t : equalRelations) {
 				if (t.getObject().contains(inputRelations.getObject())
 						|| inputRelations.getObject().contains(t.getObject())) {
 					value = 1.0;
 					right = true;
 					break;
 				}
-			}
-			if (right == false) {
-				value = -1.0;
+				if (right == false) {
+					value = -1.0;
+				}
 			}
 		} else {
 			value = 0.0;
 		}
+
+//		if (ListUtil.isNotEmpty(triplets)) {
+//			for (Triplet t : triplets) {
+//				if (t.getPredicate().equals(inputRelations.getPredicate())) {
+//					if (t.getObject().contains(inputRelations.getObject())
+//							|| inputRelations.getObject().contains(t.getObject())) {
+//						value = 1.0;
+//						right = true;
+//						break;
+//					}
+//					if (right == false) {
+//						value = -1.0;
+//					}
+//				} else {
+//					value = 0.0;
+//				}
+//			}
+//		} else {
+//			value = 0.0;
+//		}
 
 		return value;
 
