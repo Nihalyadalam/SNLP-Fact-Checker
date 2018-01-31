@@ -28,6 +28,8 @@ public class Config {
 	public static String TEST_FILE;
 	
 	public static String TEST_FILE_2;
+	
+	public static String DEBUG;
 
 	static {
 		props = new Properties();

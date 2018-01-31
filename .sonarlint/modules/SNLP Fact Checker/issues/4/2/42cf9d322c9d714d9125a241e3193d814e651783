@@ -1,10 +1,10 @@
 
-psquid:UnusedPrivateMethod"0Remove this unused private "findPattern" method.(âŒåµøÿÿÿÿH­RMAJORZ
+psquid:UnusedPrivateMethod"0Remove this unused private "findPattern" method.(âŒåµøÿÿÿÿHRMAJORZ
 CODE_SMELL
-asquid:S2864"4Iterate over the "entrySet" instead of the "keySet".(ı“ÅèH®RMAJORZ
+Wsquid:S00108")Either remove or fill this block of code.(½—ÚµHRMAJORZ
 CODE_SMELL
-€squid:S2159"ZRemove this call to "equals"; comparisons between a type and an array always return false.(½—ÚµH¯RMAJORZBUG
-gsquid:S1118":Add a private constructor to hide the implicit public one.(»ú®H°RMAJORZ
+€squid:S2159"ZRemove this call to "equals"; comparisons between a type and an array always return false.(½—ÚµH‘RMAJORZBUG
+gsquid:S1118":Add a private constructor to hide the implicit public one.(»ú®H’RMAJORZ
 CODE_SMELL
-Wsquid:S00108")Either remove or fill this block of code.(½—ÚµH±RMAJORZ
+asquid:S2864"4Iterate over the "entrySet" instead of the "keySet".(ı“ÅèH“RMAJORZ
 CODE_SMELL
