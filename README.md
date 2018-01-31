@@ -39,6 +39,10 @@ Given a list of sentences test the correctness of each sentence
 - set VM arguments as follows: `-Xmx3060m -Dfile.encoding=UTF-8`
 - run Main file `de.upb.snlp.scm.Main`
 - `result.ttl` file will be created in `data` folder
+- use `conf.properties` file to manage configuration (NER classifiers should be downloaded from [nlp.stanford.edu](https://nlp.stanford.edu/software/CRF-NER.shtml#Download)) 
+
+## Presentation
+[Presentation of the process](https://github.com/semicolonMissing/SNLP-Fact-Checker/blob/master/presentation.pdf)
 
 ## License
 
